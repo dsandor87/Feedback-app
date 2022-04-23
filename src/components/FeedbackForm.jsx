@@ -65,7 +65,7 @@ if(feedbackEdit.edit === true ) {
   return (
     <Card>
       <form onSubmit={handleSubmit}>
-        <h2>How would you rate your service with us?</h2>
+        <h2>How would you rate the value for the money of the product?</h2>
         <RatingSelect select={(rating)=> setRating(rating)}/>
         <div className="input-group">
           <input onChange={ handleTextChange } type="text" placeholder='Write a review' value={text} />
