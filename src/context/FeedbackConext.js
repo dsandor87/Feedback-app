@@ -23,7 +23,7 @@ const url = 'https://frozen-escarpment-88787.herokuapp.com'
 // Fetch feedback
 const fetchFeedback = async () => {
   const response = await fetch(
-    `/feedback?_sort=id&_order=desc`
+    `${url}/feedback?_sort=id&_order=desc`
   )
   const data = await response.json()
 
@@ -33,7 +33,7 @@ const fetchFeedback = async () => {
 // Delete feedback
 const deleteFeedback = async (id) => {
   if (window.confirm('Are you sure you want to delete?')) {
-    await fetch(`/feedback/${id}`, { method: 'DELETE' })
+    await fetch(`${url}/feedback/${id}`, { method: 'DELETE' })
 
     setFeedback(feedback.filter((item) => item.id !== id))
   }
@@ -63,7 +63,7 @@ const deleteFeedback = async (id) => {
 
   // Update feedback item
   const updateFeedback = async (id, updItem) => {
-    const response = await fetch(`/feedback/${id}`, {
+    const response = await fetch(`${url}/feedback/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
