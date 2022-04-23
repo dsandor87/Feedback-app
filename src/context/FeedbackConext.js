@@ -19,7 +19,7 @@ useEffect(() => {
   setIsLoading(false)
 }, [])
 
-const url = 'http://localhost:5000'
+const url = 'https://frozen-escarpment-88787.herokuapp.com'
 
 // Fetch feedback
 const fetchFeedback = async () => {
@@ -62,9 +62,21 @@ const deleteFeedback = async (id) => {
     setFeedback([data, ...feedback])
   }
 
-  const updateFeedback = (id ,updItem ) => {
-setFeedback(feedback.map((item)=>item.id === id ? {...item, ...updItem}: item))
+  // Update feedback item
+  const updateFeedback = async (id, updItem) => {
+    const response = await fetch(`/feedback/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updItem),
+    })
 
+    const data = await response.json()
+
+    setFeedback(
+      feedback.map((item) => (item.id === id ? { ...item, ...data } : item))
+    )
   }
 
   return <FeedbackContext.Provider value={{
