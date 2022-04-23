@@ -2,7 +2,10 @@
 
 This App allows users to add, update and delete feedback. It uses a mock REST api with json-server.
 
-This project goes over all of the fundamentals of React including...
+Visit the [Deployed App](https://starlit-maamoul-700334.netlify.app/)
+
+
+This project goes over all of the fundamentals of React including
 
 - Components
 - JSX
