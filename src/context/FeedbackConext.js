@@ -24,19 +24,21 @@ const url = 'http://localhost:5000'
 // Fetch feedback
 const fetchFeedback = async () => {
   const response = await fetch(
-    `${url}/feedback?_sort=id&_order=desc`
+    `/feedback?_sort=id&_order=desc`
   )
   const data = await response.json()
 
   setFeedback(data)
 }
 
+// Delete feedback
+const deleteFeedback = async (id) => {
+  if (window.confirm('Are you sure you want to delete?')) {
+    await fetch(`/feedback/${id}`, { method: 'DELETE' })
 
-  const deleteFeedback = (id) => {
-    if (window.confirm('Are you sure you want to delete?')) {
-      setFeedback(feedback.filter((item) => item.id !== id))
-    }
+    setFeedback(feedback.filter((item) => item.id !== id))
   }
+}
 
   const editFeedback = (item) => {
     setFeedbackEdit({
