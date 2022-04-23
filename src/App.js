@@ -11,7 +11,7 @@ function App () {
 
   return (
     <>
-    <Header text= {true}/>
+    <Header/>
     
     <div className="container">
 <FeedbackList feedback={feedback}/>   </div>

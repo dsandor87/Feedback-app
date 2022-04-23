@@ -11,7 +11,6 @@ function Header({text, bgColor,textColor}) {
   }
   return (
     <header style={headerStyles}><div className='container'>
-      <h2>Feedback UI</h2>
       <h2>{text}</h2>
 
       </div></header>
